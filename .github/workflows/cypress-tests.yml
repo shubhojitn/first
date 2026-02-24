@@ -1,0 +1,32 @@
+name: Cypress Tests
+
+on:
+  schedule:
+    - cron: '30 3 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Create fixture from secrets
+        run: |
+          cat > cypress/fixtures/example.json << EOF
+          {
+            "email": "${{ secrets.TEST_EMAIL }}",
+            "password": "${{ secrets.TEST_PASSWORD }}"
+          }
+          EOF
+      
+      - name: Run Cypress tests
+        run: npm run cypress:run
