@@ -12,13 +12,17 @@ describe('Naukri Update', () => {
     cy.wait(5000)
     cy.get('a[href*="profile"]').first().click({force: true})
     cy.wait(5000)
-    cy.get('.widgetTitle.typ-16Bold').scrollIntoView().should('have.text','Resume headline')
+    cy.reload();
+    cy.wait(5000)
+    cy.get('.widgetTitle.typ-16Bold').should('have.text','Resume headline')
     cy.get('span.edit.icon').first().click({force: true});
     cy.wait(5000)
     cy.get('.btn-dark-ot').last().click({force: true});
     cy.wait(5000)
+    cy.get('.profileUpdatedProLayer > .crossLayer > .icon').click({force: true});
     cy.get('span.typ-14Medium.mod-date-val').should('contain', 'Today')
-    
+    cy.get('.nI-gNb-drawer__icon').click({force: true})
+    cy.contains('Logout').click({force: true})
     })
     
   })
