@@ -14,7 +14,7 @@ describe('Naukri Update', () => {
     cy.wait(5000)
     cy.reload();
     cy.wait(5000)
-    cy.get('.widgetTitle.typ-16Bold').should('have.text','Resume headline')
+    cy.contains('Resume headline').scrollIntoView().should('be.visible');
     cy.get('span.edit.icon').first().click({force: true});
     cy.wait(5000)
     cy.get('.btn-dark-ot').last().click({force: true});
