@@ -12,9 +12,10 @@ describe('Naukri Update', () => {
     cy.wait(5000)
     cy.get('a[href*="profile"]').first().click({force: true})
     cy.wait(5000)
-    cy.get('span.edit.icon').first().click();
+    cy.get('.widgetTitle.typ-16Bold').scrollIntoView().should('have.text','Resume headline')
+    cy.get('span.edit.icon').first().click({force: true});
     cy.wait(5000)
-    cy.get('.btn-dark-ot').last().click();
+    cy.get('.btn-dark-ot').last().click({force: true});
     cy.wait(5000)
     cy.get('span.typ-14Medium.mod-date-val').should('contain', 'Today')
     
