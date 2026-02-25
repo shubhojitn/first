@@ -1,8 +1,8 @@
 describe('Naukri Update', () => {
   it('Login and update', function ()  {
     cy.fixture('example').then((data) => {
-      this.data = data;
-      cy.visit('https://www.naukri.com/')
+    this.data = data;
+    cy.visit('https://www.naukri.com/')
     cy.contains('Login').click();
     cy.get('input[maxlength="100"]').type(this.data.email);
     cy.get('input[type="Password"]').type(this.data.password)
