@@ -11,10 +11,7 @@ describe('Naukri Update', () => {
     cy.get('.btn-primary.loginButton').click();
     cy.wait(5000)
     cy.get('a[href*="profile"]').first().click({force: true})
-    cy.wait(5000)
-    cy.reload();
-    cy.wait(5000)
-    cy.contains('Resume headline').scrollIntoView().should('be.visible');
+    cy.scrollTo(0,300);
     cy.get('span.edit.icon').first().click({force: true});
     cy.wait(5000)
     cy.get('.btn-dark-ot').last().click({force: true});
