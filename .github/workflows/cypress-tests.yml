@@ -1,8 +1,12 @@
 name: Cypress Tests
 
 on:
-  schedule:
-    - cron: '30 3 * * *'
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   Job_Update:
